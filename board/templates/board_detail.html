@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block contents %}
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+            <div class="form-group">
+            <label for="title">제목</label>
+            <input type="text" class="form-control" id="title"
+                 value="{{board.title}}" readlonly >
+            <label for="contents">내용</label>
+              <textarea  class="form-control" readonly"> {{board.contents}}</textarea>
+            <label for="tags">태그</label>
+            <span id="tags" class="form-control">
+              {% for tag in board.tags.all %}
+              {{tag.name}} 
+              {% endfor %}
+
+              {{ board.tags.all | join:","}}
+            </span>
+            </div>
+          <button  class="btn btn-primary"> 돌아가기  </button>
+        </div>
+    </div>
+</div>  
+
+{% endblock %}
+
+
+
+
